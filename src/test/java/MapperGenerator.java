@@ -75,12 +75,12 @@ public class MapperGenerator {
         mpg.setPackageInfo(pc);
 
         TemplateConfig tc = new TemplateConfig();
-        tc.setController(null);
+//        tc.setController(null);
         // tc.setEntity("...");
 //         tc.setMapper(null);
         // tc.setXml("...");
-         tc.setService(null);
-         tc.setServiceImpl(null);
+//         tc.setService(null);
+//         tc.setServiceImpl(null);
         // 如上任何一个模块如果设置 空 OR Null 将不生成该模块。
         mpg.setTemplate(tc);
 
