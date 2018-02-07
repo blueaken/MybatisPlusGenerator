@@ -31,7 +31,7 @@ public class MapperGenerator {
         gc.setBaseResultMap(true);// XML ResultMap
         gc.setBaseColumnList(false);// XML columList
         gc.setOpen(false);
-        gc.setAuthor("李理");
+        gc.setAuthor("沈健");
 
         // 自定义文件命名，注意 %s 会自动填充表实体属性！
         gc.setServiceName("%sService");
@@ -52,16 +52,17 @@ public class MapperGenerator {
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("a111111");
-        dsc.setUrl("jdbc:mysql://172.16.9.15:3306/demo?useUnicode=true&characterEncoding=utf8");
+        dsc.setUrl("jdbc:mysql://172.16.9.15:3306/gtobusinessdb?useUnicode=true&characterEncoding=utf8");
         mpg.setDataSource(dsc);
 
         // 策略配置
         StrategyConfig strategy = new StrategyConfig();
         // strategy.setCapitalMode(true);// 全局大写命名 ORACLE 注意
-        strategy.setTablePrefix(new String[]{"db_"});// 此处可以修改为您的表前缀
+//        strategy.setTablePrefix(new String[]{"db_"});// 此处可以修改为您的表前缀
         strategy.setNaming(NamingStrategy.underline_to_camel);// 表名生成策略
-        strategy.setInclude(new String[]{"db_user"}); // 需要生成的表
+        strategy.setInclude(new String[]{"hf_com_task", "hf_com_account", "hf_com_account_class", "hf_account_com_relation"}); // 需要生成的表
         // strategy.setExclude(new String[]{"test"}); // 排除生成的表
+        strategy.setLogicDeleteFieldName("is_active");
         mpg.setStrategy(strategy);
 
         // 包配置
