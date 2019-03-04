@@ -6,10 +6,14 @@
 	<resultMap id="BaseResultMap" type="com.example.demo.model.User">
 		<id column="id" property="id" />
 		<result column="name" property="name" />
-		<result column="class_name" property="className" />
-		<result column="created_at" property="createdAt" />
-		<result column="updated_at" property="updatedAt" />
-		<result column="del_tag" property="delTag" />
+		<result column="password" property="password" />
+		<result column="email" property="email" />
+		<result column="state" property="state" />
+		<result column="is_active" property="isActive" />
+		<result column="created_time" property="createdTime" />
+		<result column="modified_time" property="modifiedTime" />
+		<result column="created_by" property="createdBy" />
+		<result column="modified_by" property="modifiedBy" />
 	</resultMap>
 
 </mapper>

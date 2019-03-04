@@ -2,44 +2,75 @@ package com.example.demo.model;
 
 import java.io.Serializable;
 
+import com.baomidou.mybatisplus.enums.IdType;
+import java.util.Date;
+import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.activerecord.Model;
-import com.baomidou.mybatisplus.annotations.TableName;
 import java.io.Serializable;
 
 /**
  * <p>
- * 
+ * 用户表
  * </p>
  *
- * @author 李理
- * @since 2017-12-01
+ * @author 沈健
+ * @since 2019-03-04
  */
-@TableName("db_user")
 public class User extends Model<User> {
 
     private static final long serialVersionUID = 1L;
 
-	private String id;
+	@TableId(value="id", type= IdType.AUTO)
+	private Long id;
+    /**
+     * 用户名
+     */
 	private String name;
     /**
-     * 班级名称让34
+     * 密码
      */
-	@TableField("class_name")
-	private String className;
-	@TableField("created_at")
-	private Long createdAt;
-	@TableField("updated_at")
-	private Long updatedAt;
-	@TableField("del_tag")
-	private Boolean delTag;
+	private String password;
+    /**
+     * 邮箱
+     */
+	private String email;
+    /**
+     * 登陆状态 0 - 已登出， 1 - 已登入
+     */
+	private Integer state;
+    /**
+     * 是否有效
+     */
+	@TableField("is_active")
+	private Boolean isActive;
+    /**
+     * 创建时间
+     */
+	@TableField("created_time")
+	private Date createdTime;
+    /**
+     * 最后修改时间
+     */
+	@TableField("modified_time")
+	private Date modifiedTime;
+    /**
+     * 创建人
+     */
+	@TableField("created_by")
+	private String createdBy;
+    /**
+     * 最后修改人
+     */
+	@TableField("modified_by")
+	private String modifiedBy;
 
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -51,36 +82,68 @@ public class User extends Model<User> {
 		this.name = name;
 	}
 
-	public String getClassName() {
-		return className;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setClassName(String className) {
-		this.className = className;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
-	public Long getCreatedAt() {
-		return createdAt;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setCreatedAt(Long createdAt) {
-		this.createdAt = createdAt;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public Long getUpdatedAt() {
-		return updatedAt;
+	public Integer getState() {
+		return state;
 	}
 
-	public void setUpdatedAt(Long updatedAt) {
-		this.updatedAt = updatedAt;
+	public void setState(Integer state) {
+		this.state = state;
 	}
 
-	public Boolean getDelTag() {
-		return delTag;
+	public Boolean getActive() {
+		return isActive;
 	}
 
-	public void setDelTag(Boolean delTag) {
-		this.delTag = delTag;
+	public void setActive(Boolean isActive) {
+		this.isActive = isActive;
+	}
+
+	public Date getCreatedTime() {
+		return createdTime;
+	}
+
+	public void setCreatedTime(Date createdTime) {
+		this.createdTime = createdTime;
+	}
+
+	public Date getModifiedTime() {
+		return modifiedTime;
+	}
+
+	public void setModifiedTime(Date modifiedTime) {
+		this.modifiedTime = modifiedTime;
+	}
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public String getModifiedBy() {
+		return modifiedBy;
+	}
+
+	public void setModifiedBy(String modifiedBy) {
+		this.modifiedBy = modifiedBy;
 	}
 
 	@Override
@@ -91,12 +154,16 @@ public class User extends Model<User> {
 	@Override
 	public String toString() {
 		return "User{" +
-			"id=" + id +
+			", id=" + id +
 			", name=" + name +
-			", className=" + className +
-			", createdAt=" + createdAt +
-			", updatedAt=" + updatedAt +
-			", delTag=" + delTag +
+			", password=" + password +
+			", email=" + email +
+			", state=" + state +
+			", isActive=" + isActive +
+			", createdTime=" + createdTime +
+			", modifiedTime=" + modifiedTime +
+			", createdBy=" + createdBy +
+			", modifiedBy=" + modifiedBy +
 			"}";
 	}
 }
